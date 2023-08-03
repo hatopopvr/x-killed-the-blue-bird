@@ -1,5 +1,5 @@
 ## 概要
-Twitterの画面内の特定のキーワードを辞書に基づいて置換するネタツールです。
+Twitterの画面内の特定のキーワードを辞書に基づいて置換するネタツールです。  
 ユーザースクリプトとして動作し、特定の単語を自動で別の単語に置換します。
 
 ## 機能
@@ -7,7 +7,8 @@ Twitterの画面内の特定のキーワードを辞書に基づいて置換す�
 - 定期的な置換実行（カスタマイズ可能なタイミング）
 
 ## 使い方
-辞書に基づいて置換したい単語を追加・編集することで、Twitter上での表示をカスタマイズできます。
+辞書に基づいて置換したい単語を追加・編集することで、Twitter上での表示をカスタマイズできます。  
+アップデートした場合など辞書がそのまま上書きされてしまうので注意してください。
 
 ```js
 // 置換する項目
@@ -39,7 +40,7 @@ var replace_dictionary = {
 ```
 
 ## インストール方法
-まず、[Chrome/Edge Chromium 用の Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) を入手します。
+まず、[Chrome/Edge Chromium 用の Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) を入手します。  
 このリポジトリからスクリプトファイルをダウンロードし、対応するユーザースクリプトマネージャー（例：Tampermonkey）にインストールしてください。
 
 ## 注意
