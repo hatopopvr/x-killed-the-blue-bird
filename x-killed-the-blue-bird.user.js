@@ -17,7 +17,7 @@
     'use strict';
 
     // 初回待機時間 1000 -> 1秒
-    var replace_timer = 1000;
+    var replace_timer = 1500;
 
     // 定期置換する時間 5000 -> 5秒
     var replace_interval = 30000;
