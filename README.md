@@ -14,7 +14,10 @@ Twitterの画面内の特定のキーワードを辞書に基づいて置換す�
 var replace_dictionary = {
     'リツイート': 'ReX',
     'ツイート': 'X',
+    'Tweet': 'X',
+    'Twitter': 'X',
     '投稿': 'X',
+    'Post': 'X',
     'ホーム': 'X',
     '認証': 'X',
     'サブスクライブ': 'X',
@@ -31,7 +34,6 @@ var replace_dictionary = {
     'もっと見る': 'もっとX',
     '返信': 'Xly',
     'reply': 'Xly',
-    'Post': 'X',
     'いまどうしてる？': 'Xする？',
     'ユーザー': 'Xer',
     'ログアウト': 'Xout',
