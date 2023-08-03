@@ -42,8 +42,7 @@ var replace_dictionary = {
 ## インストール方法
 まず、[Chrome/Edge Chromium 用の Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) を入手します。  
 このリポジトリからスクリプトファイルをダウンロードし、対応するユーザースクリプトマネージャー（例：Tampermonkey）にインストールしてください。
-次に、[こちら](https://github.com/hatopopvr/x-killed-the-blue-bird/raw/master/x-killed-the-blue-bird.user.js) からスクリプトをインストールします。
-
+次に、[こちら](https://raw.githubusercontent.com/hatopopvr/x-killed-the-blue-bird/master/x-killed-the-blue-bird.user.js) からスクリプトをインストールします。
 
 ## 注意
 - twitter上でのイベント取得が適切にできてないため、intervalで定期的に上書きを行っています。

@@ -6,8 +6,8 @@
 // @author       hatopopvr
 // @match        https://twitter.com/*
 // @icon         https://twitter.com/favicon.ico
-// @updateURL    https://github.com/hatopopvr/x-killed-the-blue-bird/raw/master/x-killed-the-blue-bird.user.js
-// @downloadURL  https://github.com/hatopopvr/x-killed-the-blue-bird/raw/master/x-killed-the-blue-bird.user.js
+// @updateURL    https://raw.githubusercontent.com/hatopopvr/x-killed-the-blue-bird/master/x-killed-the-blue-bird.user.js
+// @downloadURL  https://raw.githubusercontent.com/hatopopvr/x-killed-the-blue-bird/master/x-killed-the-blue-bird.user.js
 // @supportURL   https://github.com/hatopopvr/x-killed-the-blue-bird/issues
 // @grant        none
 // @run-at       document-start
