@@ -1,18 +1,26 @@
 // ==UserScript==
-// @name         XKilledTheBlueBird
+// @name         x-killled-the-blue-bird
 // @namespace    hatopop_x
 // @version      0.0.1
-// @description  十字の象徴よ！青き鳥を駆逐しその身に刻め！おさらバード！(ネタツールです。Twitterの表示を変えるだけです。)
+// @description  change keyword to X
 // @author       hatopopvr
 // @match        https://twitter.com/*
 // @icon         https://twitter.com/favicon.ico
 // @updateURL    https://github.com/hatopopvr/x-killed-the-blue-bird/raw/master/x-killed-the-blue-bird.user.js
 // @downloadURL  https://github.com/hatopopvr/x-killed-the-blue-bird/raw/master/x-killed-the-blue-bird.user.js
+// @supportURL   https://github.com/hatopopvr/x-killed-the-blue-bird/issues
 // @grant        none
+// @run-at       document-start
 // ==/UserScript==
 
 (function() {
     'use strict';
+
+    // 初回待機時間 1000 -> 1秒
+    var replace_timer = 1000;
+
+    // 定期置換する時間 5000 -> 5秒
+    var replace_interval = 30000;
 
     // 置換する項目
     var replace_dictionary = {
@@ -39,7 +47,6 @@
         'いまどうしてる？': 'Xする？',
         'ユーザー': 'Xer',
         'ログアウト': 'Xout',
-        // ここに追加したいキーワードを書くのよ
     };
 
     function replaceKeywordsInTextNode(node) {
@@ -57,40 +64,34 @@
             walkTheDOM(node, func);
             node = node.nextSibling;
         }
-    }   
-
-    function observeChanges() {
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                mutation.addedNodes.forEach(function(node) {
-                    if (node.nodeType === 3) {
-                        replaceKeywordsInTextNode(node);
-                    } else if (node.childNodes && node.childNodes.length) {
-                        node.childNodes.forEach(function(child) {
-                            if (child.nodeType === 3) {
-                                replaceKeywordsInTextNode(child);
-                            }
-                        });
-                    }
-                });
-            });
-        });
-
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-            characterData: true
-        });
     }
 
-    window.onload = function() {
+    function replaceAllKeywords() {
+        walkTheDOM(document.body, function(node) {
+            if (node.nodeType === 3) { // テキストノードの場合
+                replaceKeywordsInTextNode(node);
+            }
+        });
+    }
+    
+    function scheduleReplacement(initialDelay, interval) {
+        // 初回の遅延
         setTimeout(function() {
-            walkTheDOM(document.body, function(node) {
-                if (node.nodeType === 3) { // テキストノードの場合
-                    replaceKeywordsInTextNode(node);
-                }
-            });
-            observeChanges();
-        }, 1000); // ここで1000ミリ秒（1秒）待つように設定しているわ
+            replaceAllKeywords();
+    
+            // その後の定期実行
+            setInterval(function() {
+                replaceAllKeywords();
+            }, interval);
+        }, initialDelay);
+    }
+    
+    window.onload = function() {
+        scheduleReplacement(replace_timer, replace_interval);
     };
-})();
+
+    window.addEventListener('popstate', function() {
+        scheduleReplacement(replace_timer, replace_interval);
+    });
+    
+})();    
